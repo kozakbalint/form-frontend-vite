@@ -1,5 +1,6 @@
 import Datasets from "./Datasets";
 import { Pages } from "./Pages";
+import Scores from "./Scores";
 import usePage from "./usePage";
 
 const Container: React.FC = () => {
@@ -9,7 +10,7 @@ const Container: React.FC = () => {
         case Pages.Datasets:
             return <Datasets />;
         case Pages.Scores:
-            return "Scores";
+            return <Scores />;
         case Pages.Test:
             return "Test";
     }
