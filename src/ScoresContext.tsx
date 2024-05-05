@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { ScoreTypes } from "./ScoreTypes";
 
 export interface Scores {
@@ -21,7 +21,10 @@ interface ScoreProviderProps {
 }
 
 const ScoresProvider: React.FC<ScoreProviderProps> = ({ children }) => {
-    const [scores, setScores] = useState<Scores[]>([]);
+    const initialValue = localStorage.getItem("ScoresContextData");
+    const [scores, setScores] = useState<Scores[]>(
+        initialValue ? JSON.parse(initialValue) : []
+    );
 
     const addScore = (score: Scores) => {
         const exsitingScoreIndex = scores.findIndex(
@@ -43,6 +46,17 @@ const ScoresProvider: React.FC<ScoreProviderProps> = ({ children }) => {
             prevScores.filter((score) => score.name !== name)
         );
     };
+
+    useEffect(() => {
+        const storedData = localStorage.getItem("ScoresContextData");
+        if (storedData) {
+            setScores(JSON.parse(storedData));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("ScoresContextData", JSON.stringify(scores));
+    }, [scores]);
 
     return (
         <ScoresContext.Provider value={{ scores, addScore, removeScore }}>

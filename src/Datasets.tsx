@@ -125,7 +125,10 @@ const Datasets: React.FC = () => {
                     </thead>
                     <tbody className="text-center">
                         {datasets.map((dataset) => (
-                            <DatasetEntry dataset={dataset} />
+                            <DatasetEntry
+                                key={dataset.name}
+                                dataset={dataset}
+                            />
                         ))}
                     </tbody>
                 </table>

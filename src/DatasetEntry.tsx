@@ -26,6 +26,7 @@ const DatasetEntry: React.FC<DatasetEntryProp> = (dataset) => {
                 {dataSet.isActive ? (
                     <input
                         type="checkbox"
+                        id={dataSet.name + "-isActive"}
                         checked
                         onChange={() => updateDatasetSatus(dataSet.name)}
                         className="cursor-pointer"
@@ -33,6 +34,7 @@ const DatasetEntry: React.FC<DatasetEntryProp> = (dataset) => {
                 ) : (
                     <input
                         type="checkbox"
+                        id={dataSet.name + "-isActive"}
                         onChange={() => updateDatasetSatus(dataSet.name)}
                         className="cursor-pointer"
                     ></input>

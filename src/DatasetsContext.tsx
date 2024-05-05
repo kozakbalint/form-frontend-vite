@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export interface Dataset {
     isActive: boolean;
@@ -24,7 +24,10 @@ interface DatasetProviderProps {
 }
 
 const DatasetsProvider: React.FC<DatasetProviderProps> = ({ children }) => {
-    const [datasets, setDatasets] = useState<Dataset[]>([]);
+    const initialValue = localStorage.getItem("DatasetsContextData");
+    const [datasets, setDatasets] = useState<Dataset[]>(
+        initialValue ? JSON.parse(initialValue) : []
+    );
 
     const addDataset = (dataset: Dataset) => {
         const exsitingDatasetIndex = datasets.findIndex(
@@ -57,6 +60,17 @@ const DatasetsProvider: React.FC<DatasetProviderProps> = ({ children }) => {
             })
         );
     };
+
+    useEffect(() => {
+        const storedData = localStorage.getItem("DatasetsContextData");
+        if (storedData) {
+            setDatasets(JSON.parse(storedData));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("DatasetsContextData", JSON.stringify(datasets));
+    }, [datasets]);
 
     return (
         <DatasetContext.Provider
