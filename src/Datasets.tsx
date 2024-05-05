@@ -3,6 +3,7 @@ import useDatasets from "./useDatasets";
 import * as Yup from "yup";
 import TextInputField from "./TextInputField";
 import NumberInputField from "./NumberInputField";
+import DatasetEntry from "./DatasetEntry";
 
 interface DatasetsFormValues {
     name: string;
@@ -21,10 +22,19 @@ const Datasets: React.FC = () => {
     };
     const validationSchema = Yup.object()
         .shape({
-            name: Yup.string().min(3, "Too short!").required("Required"),
-            firstNum: Yup.number().min(1, "Can't be 0").required("Required"),
-            secondNum: Yup.number().min(1, "Can't be 0").required("Required"),
-            thirdNum: Yup.number().min(1, "Can't be 0").required("Required"),
+            name: Yup.string()
+                .min(3, "Too short!")
+                .max(10, "Too long!")
+                .required("Required"),
+            firstNum: Yup.number()
+                .min(1, "Must be bigger than 0.")
+                .required("Required"),
+            secondNum: Yup.number()
+                .min(1, "Must be bigger than 0.")
+                .required("Required"),
+            thirdNum: Yup.number()
+                .min(1, "Must be bigger than 0.")
+                .required("Required"),
         })
         .test(
             "sum-of-2-3",
@@ -98,11 +108,27 @@ const Datasets: React.FC = () => {
                 </Formik>
             </div>
             <div>
-                <ul>
-                    {datasets.map((dataset) => (
-                        <li key={dataset.name}>{dataset.name}</li>
-                    ))}
-                </ul>
+                <table className="mx-2 table-auto border-collapse rounded border border-gray-300 md:table-fixed">
+                    <thead>
+                        <tr>
+                            <th className="w-40 border border-gray-300"></th>
+                            <th className="w-40 border border-gray-300">
+                                Name:
+                            </th>
+                            <th className="w-40 border border-gray-300">#:</th>
+                            <th className="w-40 border border-gray-300">P:</th>
+                            <th className="w-40 border border-gray-300">N:</th>
+                            <th className="w-40 border border-gray-300">
+                                Active:
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="text-center">
+                        {datasets.map((dataset) => (
+                            <DatasetEntry dataset={dataset} />
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </main>
     );
