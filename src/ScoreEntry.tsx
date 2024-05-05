@@ -6,7 +6,7 @@ interface ScoreEntryProp {
 }
 
 const ScoreEntry: React.FC<ScoreEntryProp> = (score) => {
-    const { removeScore, updateScoreSatus } = useScores();
+    const { removeScore } = useScores();
     const scoreEntry = score.scores;
     return (
         <tr>
@@ -20,22 +20,6 @@ const ScoreEntry: React.FC<ScoreEntryProp> = (score) => {
             </td>
             <td className="border border-gray-300">{scoreEntry.name}</td>
             <td className="border border-gray-300">{scoreEntry.value}</td>
-            <td className="border border-gray-300">
-                {scoreEntry.isActive ? (
-                    <input
-                        type="checkbox"
-                        checked
-                        onChange={() => updateScoreSatus(scoreEntry.name)}
-                        className="cursor-pointer"
-                    ></input>
-                ) : (
-                    <input
-                        type="checkbox"
-                        onChange={() => updateScoreSatus(scoreEntry.name)}
-                        className="cursor-pointer"
-                    ></input>
-                )}
-            </td>
         </tr>
     );
 };

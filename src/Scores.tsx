@@ -97,9 +97,6 @@ const Datasets: React.FC = () => {
                             <th className="w-40 border border-gray-300">
                                 Value
                             </th>
-                            <th className="w-40 border border-gray-300">
-                                Active:
-                            </th>
                         </tr>
                     </thead>
                     <tbody className="text-center">

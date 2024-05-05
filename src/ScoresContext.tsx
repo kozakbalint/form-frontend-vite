@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 import { ScoreTypes } from "./ScoreTypes";
 
 export interface Scores {
-    isActive: boolean;
     name: ScoreTypes;
     value: number;
 }
@@ -11,7 +10,6 @@ interface ScoresContextType {
     scores: Array<Scores>;
     addScore: (score: Scores) => void;
     removeScore: (name: string) => void;
-    updateScoreSatus: (name: string) => void;
 }
 
 export const ScoresContext = createContext<ScoresContextType | undefined>(
@@ -46,21 +44,8 @@ const ScoresProvider: React.FC<ScoreProviderProps> = ({ children }) => {
         );
     };
 
-    const updateScoreSatus = (name: string) => {
-        setScores((prevScores) =>
-            prevScores.map((score) => {
-                if (score.name === name) {
-                    return { ...score, isActive: !score.isActive };
-                }
-                return score;
-            })
-        );
-    };
-
     return (
-        <ScoresContext.Provider
-            value={{ scores, addScore, removeScore, updateScoreSatus }}
-        >
+        <ScoresContext.Provider value={{ scores, addScore, removeScore }}>
             {children}
         </ScoresContext.Provider>
     );
