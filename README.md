@@ -14,3 +14,10 @@ bun run dev
 ```shell
 bun run prettier-watch
 ```
+
+### Deploy to Surge:
+
+```shell
+bun run build
+surge dist
+```
