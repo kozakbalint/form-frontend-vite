@@ -25,16 +25,16 @@ const Datasets: React.FC = () => {
             name: Yup.string()
                 .min(3, "Too short!")
                 .max(10, "Too long!")
-                .required("Required"),
+                .required("Required field"),
             firstNum: Yup.number()
                 .min(1, "Must be bigger than 0.")
-                .required("Required"),
+                .required("Required field"),
             secondNum: Yup.number()
                 .min(1, "Must be bigger than 0.")
-                .required("Required"),
+                .required("Required field"),
             thirdNum: Yup.number()
                 .min(1, "Must be bigger than 0.")
-                .required("Required"),
+                .required("Required field"),
         })
         .test(
             "sum-of-2-3",
