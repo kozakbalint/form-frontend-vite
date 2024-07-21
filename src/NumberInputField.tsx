@@ -37,7 +37,7 @@ const NumberInputField: React.FC<FieldProps & NumberInputFieldProps> = ({
                 autoComplete="off"
                 {...field}
                 {...props}
-                className="h-10 rounded border-2 text-black p-2"
+                className="h-10 rounded border-2 p-2 text-black"
             />
             <div className="hidden"></div>
         </div>

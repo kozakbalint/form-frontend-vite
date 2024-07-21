@@ -13,7 +13,7 @@ const DatasetEntry: React.FC<DatasetEntryProp> = (dataset) => {
             <td className="border border-gray-300 p-2">
                 <button
                     onClick={() => removeDataset(dataSet.name)}
-                    className="rounded-md bg-red-600 h-6 w-6 text-white"
+                    className="h-6 w-6 rounded-md bg-red-600 text-white"
                 >
                     X
                 </button>
@@ -29,14 +29,14 @@ const DatasetEntry: React.FC<DatasetEntryProp> = (dataset) => {
                         id={dataSet.name + "-isActive"}
                         checked
                         onChange={() => updateDatasetSatus(dataSet.name)}
-                        className="cursor-pointer h-5 w-5 m-0 mt-2"
+                        className="m-0 mt-2 h-5 w-5 cursor-pointer"
                     ></input>
                 ) : (
                     <input
                         type="checkbox"
                         id={dataSet.name + "-isActive"}
                         onChange={() => updateDatasetSatus(dataSet.name)}
-                        className="cursor-pointer h-5 w-5 m-0 mt-2"
+                        className="m-0 mt-2 h-5 w-5 cursor-pointer"
                     ></input>
                 )}
             </td>

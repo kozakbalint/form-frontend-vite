@@ -115,9 +115,15 @@ const Datasets: React.FC = () => {
                             <th className="w-40 border border-gray-300 p-2">
                                 Name:
                             </th>
-                            <th className="w-40 border border-gray-300 p-2">#:</th>
-                            <th className="w-40 border border-gray-300 p-2">P:</th>
-                            <th className="w-40 border border-gray-300 p-2">N:</th>
+                            <th className="w-40 border border-gray-300 p-2">
+                                #:
+                            </th>
+                            <th className="w-40 border border-gray-300 p-2">
+                                P:
+                            </th>
+                            <th className="w-40 border border-gray-300 p-2">
+                                N:
+                            </th>
                             <th className="w-40 border border-gray-300 p-2">
                                 Active:
                             </th>
