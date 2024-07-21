@@ -13,7 +13,10 @@ const TextInputField: React.FC<FieldProps & SelectInputFieldProps> = ({
 }) => {
     return touched[field.name] && errors[field.name] ? (
         <div className="flex flex-col md:w-2/6">
-            <label htmlFor={field.name} className="text-lg text-red-600">
+            <label
+                htmlFor={field.name}
+                className="whitespace-nowrap text-lg text-red-600"
+            >
                 {label}
             </label>
             <select
@@ -27,7 +30,10 @@ const TextInputField: React.FC<FieldProps & SelectInputFieldProps> = ({
         </div>
     ) : (
         <div className="flex flex-col md:w-2/6">
-            <label htmlFor={field.name} className="text-lg text-black">
+            <label
+                htmlFor={field.name}
+                className="whitespace-nowrap text-lg text-black"
+            >
                 {label}
             </label>
             <select
