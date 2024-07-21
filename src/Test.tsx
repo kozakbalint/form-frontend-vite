@@ -10,7 +10,7 @@ interface TestResponse {
 }
 
 const Test: React.FC = () => {
-    const url: string = "http://193.6.135.26/api.php";
+    const url: string = import.meta.env.VITE_API_ENDPOINT;
     const { datasets } = useDatasets();
     const { scores } = useScores();
     const [response, setResponse] = useState<TestResponse>();
@@ -34,7 +34,6 @@ const Test: React.FC = () => {
     };
 
     const handleClick = async () => {
-        console.log(jsonData);
         const encodedData = btoa(JSON.stringify(jsonData));
         const urlParams = new URLSearchParams();
         urlParams.append("data", encodedData);
@@ -63,7 +62,7 @@ const Test: React.FC = () => {
         }
     };
     return (
-        <main className="flex flex-col items-center gap-4 pt-4">
+        <main className="flex flex-col items-center gap-12 pt-4">
             <div className="w-11/12 self-center md:w-3/4">
                 <button
                     onClick={handleClick}
