@@ -23,22 +23,22 @@ const Datasets: React.FC = () => {
     const validationSchema = Yup.object()
         .shape({
             name: Yup.string()
-                .min(3, "Too short!")
-                .max(10, "Too long!")
-                .required("Required field"),
+                .min(3, "Too short, must be at least 3 characters.")
+                .max(10, "Too long, must be at most 10 characters.")
+                .required("Required field."),
             firstNum: Yup.number()
                 .min(1, "Must be bigger than 0.")
-                .required("Required field"),
+                .required("Required field."),
             secondNum: Yup.number()
                 .min(1, "Must be bigger than 0.")
-                .required("Required field"),
+                .required("Required field."),
             thirdNum: Yup.number()
                 .min(1, "Must be bigger than 0.")
-                .required("Required field"),
+                .required("Required field."),
         })
         .test(
             "sum-of-2-3",
-            "The first number must be equal the sum of the second and third number",
+            "The first number must be equal the sum of the second and third numbers.",
             (values, ctx) => {
                 const { firstNum, secondNum, thirdNum } = values;
                 if (firstNum === secondNum + thirdNum) {
@@ -47,13 +47,13 @@ const Datasets: React.FC = () => {
                 return ctx.createError({
                     path: "firstNum",
                     message:
-                        "The first number mus be equal the sum of the second and third number.",
+                        "The first number must be equal to the sum of the second and third numbers.",
                 });
             }
         );
 
     return (
-        <main className="flex flex-col items-center gap-4 pt-4">
+        <main className="flex flex-col items-center gap-12 pt-4">
             <div className="w-4/5 md:w-9/12">
                 <Formik
                     initialValues={initialValues}
@@ -111,14 +111,14 @@ const Datasets: React.FC = () => {
                 <table className="mx-2 table-auto border-collapse rounded border border-gray-300 md:table-fixed">
                     <thead>
                         <tr>
-                            <th className="w-40 border border-gray-300"></th>
-                            <th className="w-40 border border-gray-300">
+                            <th className="w-40 border border-gray-300 p-2"></th>
+                            <th className="w-40 border border-gray-300 p-2">
                                 Name:
                             </th>
-                            <th className="w-40 border border-gray-300">#:</th>
-                            <th className="w-40 border border-gray-300">P:</th>
-                            <th className="w-40 border border-gray-300">N:</th>
-                            <th className="w-40 border border-gray-300">
+                            <th className="w-40 border border-gray-300 p-2">#:</th>
+                            <th className="w-40 border border-gray-300 p-2">P:</th>
+                            <th className="w-40 border border-gray-300 p-2">N:</th>
+                            <th className="w-40 border border-gray-300 p-2">
                                 Active:
                             </th>
                         </tr>

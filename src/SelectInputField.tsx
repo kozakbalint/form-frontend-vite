@@ -21,7 +21,7 @@ const TextInputField: React.FC<FieldProps & SelectInputFieldProps> = ({
                 autoComplete="off"
                 {...field}
                 {...props}
-                className="h-8 rounded border-2 border-red-600"
+                className="h-10 rounded border-2 border-red-600 p-2"
             ></select>
             <div className="text-red-600">{errors[field.name]?.toString()}</div>
         </div>
@@ -35,9 +35,9 @@ const TextInputField: React.FC<FieldProps & SelectInputFieldProps> = ({
                 autoComplete="off"
                 {...field}
                 {...props}
-                className="h-8 rounded border-2 text-black"
+                className="h-10 rounded border-2 text-black p-2"
             ></select>
-            <div className="text-white">Error placeholder</div>
+            <div className="hidden"></div>
         </div>
     );
 };

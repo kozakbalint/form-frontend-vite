@@ -30,7 +30,7 @@ const Datasets: React.FC = () => {
             .required("Required")
             .test(
                 "is-percent",
-                "Must be a percentage or a value between 0 and 1",
+                "Must be a percentage or a value between 0 and 1.",
                 (value) => {
                     return (
                         (value >= 0 && value <= 1) ||
@@ -41,7 +41,7 @@ const Datasets: React.FC = () => {
     });
 
     return (
-        <main className="flex flex-col items-center gap-4 pt-4">
+        <main className="flex flex-col items-center gap-12 pt-4">
             <div className="w-4/5 md:w-9/12">
                 <Formik
                     initialValues={initialValues}
@@ -90,11 +90,11 @@ const Datasets: React.FC = () => {
                 <table className="mx-2 table-auto border-collapse rounded border border-gray-300 md:table-fixed">
                     <thead>
                         <tr>
-                            <th className="w-40 border border-gray-300"></th>
-                            <th className="w-40 border border-gray-300">
+                            <th className="w-40 border border-gray-300 p-2"></th>
+                            <th className="w-40 border border-gray-300 p-2">
                                 Score Type:
                             </th>
-                            <th className="w-40 border border-gray-300">
+                            <th className="w-40 border border-gray-300 p-2">
                                 Value
                             </th>
                         </tr>

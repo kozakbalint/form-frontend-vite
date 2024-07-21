@@ -13,13 +13,13 @@ const ScoreEntry: React.FC<ScoreEntryProp> = (score) => {
             <td className="border border-gray-300">
                 <button
                     onClick={() => removeScore(scoreEntry.name)}
-                    className="rounded-md bg-red-600 px-2 text-white"
+                    className="rounded-md bg-red-600 text-white h-6 w-6"
                 >
                     X
                 </button>
             </td>
-            <td className="border border-gray-300">{scoreEntry.name}</td>
-            <td className="border border-gray-300">{scoreEntry.value}</td>
+            <td className="border border-gray-300 p-2">{scoreEntry.name}</td>
+            <td className="border border-gray-300 p-2">{scoreEntry.value}</td>
         </tr>
     );
 };
